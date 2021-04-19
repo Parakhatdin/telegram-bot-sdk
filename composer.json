@@ -1,0 +1,13 @@
+{
+    "name": "root/telegram-sdk",
+    "description": "telegram bot sdk",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Parakhatdin Nuratdinov",
+            "email": "nuratdinov.p@gmail.com"
+        }
+    ],
+    "require": {}
+}
