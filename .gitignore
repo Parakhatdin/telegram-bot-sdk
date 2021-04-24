@@ -1,3 +1,5 @@
 .idea
 vendor
 .code
+composer.lock
+start.php
