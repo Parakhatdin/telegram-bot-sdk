@@ -6,30 +6,34 @@ namespace Parakhatdin\Telegram;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
-use Parakhatdin\Telegram\AvailableMethods\SendMessage;
-use Parakhatdin\Telegram\AvailableMethods\GetMe;
+use Parakhatdin\Telegram\Methods\GetUpdates;
+use Parakhatdin\Telegram\Methods\SendMessage;
+use Parakhatdin\Telegram\Methods\GetMe;
 
 class Request
 {
     /**
-     * @var Telegram
+     * @var Bot
      */
-    private static $telegram;
+    protected $bot;
     /**
      * @var Client
      */
-    private static $client;
+    protected $client;
 
     const BASE_TELEGRAM_URI = "https://api.telegram.org";
 
     /**
-     * @param Telegram $telegram
+     * Request constructor.
+     * @param Bot $telegram
      */
-    public static function init (Telegram $telegram)
+    public function __construct(Bot $bot)
     {
-        self::$telegram = $telegram;
-        self::$client = new Client(['base_uri' => self::BASE_TELEGRAM_URI]);
+        $this->bot = $bot;
+        $this->client = new Client(['base_uri' => self::BASE_TELEGRAM_URI]);
     }
+
+
 
     public function getMe ()
     {
@@ -38,13 +42,22 @@ class Request
 
     public function sendMessage ($chat_id, $text)
     {
-        return new SendMessage($chat_id, $text);
+        $method = new SendMessage($chat_id, $text);
+        $method->setRequest($this);
+        return $method;
     }
 
-    public static function execute (string $method, $parameters)
+    public function getUpdates ()
+    {
+        $method = new GetUpdates();
+        $method->setRequest($this);
+        return $method;
+    }
+
+    public function execute (string $method, $parameters): \Psr\Http\Message\ResponseInterface
     {
         try {
-            return self::$client->post('/bot' . self::$telegram->getBotToken() . '/' . $method, $parameters);
+            return $this->client->post('/bot' . $this->bot->getBotToken() . '/' . $method, $parameters);
         } catch (GuzzleException $e) {
         }
     }

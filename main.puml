@@ -1,0 +1,13 @@
+@startuml
+class Telegram {
+    #bot_token: string
+    +__construct(bot_token: string)
+    +getBotToken(): string
+}
+class Request {
+    #telegram: Telegram
+    #client: Client
+    +__construct(#telegram: Telegram)
+    +execute(method: string, parameters: array): void
+}
+@enduml
