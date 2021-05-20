@@ -7,20 +7,20 @@ namespace Parakhatdin\Telegram\Objects;
 /**
  * Class Update
  *
+ * @property ChatMemberUpdated|null chat_member
+ * @property ChatMemberUpdated|null my_chat_member
+ * @property PollAnswer|null poll_answer
+ * @property Poll|null poll
+ * @property PreCheckoutQuery|null pre_checkout_query
+ * @property ShippingQuery|null shipping_query
+ * @property CallbackQuery|null callback_query
+ * @property ChosenInlineResult|null chosen_inline_result
+ * @property InlineQuery|null inline_query
+ * @property Message|null edited_channel_post
+ * @property Message|null channel_post
+ * @property Message|null edited_message
+ * @property Message|null message
  * @property int update_id
- * @property ChatMemberUpdated chat_member
- * @property ChatMemberUpdated my_chat_member
- * @property PollAnswer poll_answer
- * @property Poll poll
- * @property PreCheckoutQuery pre_checkout_query
- * @property ShippingQuery shipping_query
- * @property CallbackQuery callback_query
- * @property ChosenInlineResult chosen_inline_result
- * @property InlineQuery inline_query
- * @property Message edited_channel_post
- * @property Message channel_post
- * @property Message edited_message
- * @property Message message
  *
  * @package Parakhatdin\Telegram\Objects
  */
@@ -30,21 +30,22 @@ class Update extends ObjectAbstract
     /**
      * Update constructor.
      */
-    public function __construct(
+    public function __construct
+    (
         int $update_id,
-        Message $message = null,
-        Message $edited_message = null,
-        Message $channel_post = null,
-        Message $edited_channel_post = null,
-        InlineQuery $inline_query = null,
-        ChosenInlineResult $chosen_inline_result = null,
-        CallbackQuery $callback_query = null,
-        ShippingQuery $shipping_query = null,
-        PreCheckoutQuery $pre_checkout_query = null,
-        Poll $poll = null,
-        PollAnswer $poll_answer = null,
-        ChatMemberUpdated $my_chat_member = null,
-        ChatMemberUpdated $chat_member = null
+        ?Message $message = null,
+        ?Message $edited_message = null,
+        ?Message $channel_post = null,
+        ?Message $edited_channel_post = null,
+        ?InlineQuery $inline_query = null,
+        ?ChosenInlineResult $chosen_inline_result = null,
+        ?CallbackQuery $callback_query = null,
+        ?ShippingQuery $shipping_query = null,
+        ?PreCheckoutQuery $pre_checkout_query = null,
+        ?Poll $poll = null,
+        ?PollAnswer $poll_answer = null,
+        ?ChatMemberUpdated $my_chat_member = null,
+        ?ChatMemberUpdated $chat_member = null
     )
     {
         $this->update_id = $update_id;
@@ -63,7 +64,7 @@ class Update extends ObjectAbstract
         $this->chat_member = $chat_member;
     }
 
-    public static function makeFromArray(array $data): Update
+    public static function makeFromArray(array $data)
     {
         $update = new Update($data["update_id"]);
         foreach ($data as $key => $value) {
@@ -75,4 +76,5 @@ class Update extends ObjectAbstract
         $update->edited_channel_post = Message::makeFromArray($data["edited_channel_post"]);
         return $update;
     }
+
 }

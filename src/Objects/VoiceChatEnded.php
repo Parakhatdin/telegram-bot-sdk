@@ -6,31 +6,26 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class VoiceChatEnded
+ *
+ * @property int duration
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class VoiceChatEnded
+class VoiceChatEnded extends ObjectAbstract
 {
     /**
-     * @var int
-     */
-    private $duration;
-
-    /**
      * VoiceChatEnded constructor.
-     * @param int $duration
      */
-    public function __construct(int $duration)
+    public function __construct
+    (
+        int $duration
+    )
     {
         $this->duration = $duration;
     }
 
-    /**
-     * @return int
-     */
-    public function getDuration(): int
+    public static function makeFromArray(array $data)
     {
-        return $this->duration;
+        // TODO: Implement makeFromArray() method.
     }
-
-
 }

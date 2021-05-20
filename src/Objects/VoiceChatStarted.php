@@ -4,7 +4,11 @@
 namespace Parakhatdin\Telegram\Objects;
 
 
-class VoiceChatStarted
+class VoiceChatStarted extends ObjectAbstract
 {
 
+    public static function makeFromArray(array $data)
+    {
+        // TODO: Implement makeFromArray() method.
+    }
 }

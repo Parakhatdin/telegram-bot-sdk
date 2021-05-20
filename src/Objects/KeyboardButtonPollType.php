@@ -6,29 +6,28 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class KeyboardButtonPollType
+ *
+ * @property string type
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class KeyboardButtonPollType
+class KeyboardButtonPollType extends ObjectAbstract
 {
-    /**
-     * @var string
-     */
-    private $type;
 
     /**
-     * @return string
+     * KeyboardButtonPollType constructor.
      */
-    public function getType(): string
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param string $type
-     */
-    public function setType(string $type): void
+    public function __construct
+    (
+        string $type
+    )
     {
         $this->type = $type;
     }
 
+
+    public static function makeFromArray(array $data)
+    {
+        // TODO: Implement makeFromArray() method.
+    }
 }

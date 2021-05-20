@@ -6,77 +6,42 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class Location
+ *
+ * @property int|null proximity_alert_radius
+ * @property int|null heading
+ * @property int|null live_period
+ * @property float|null horizontal_accuracy
+ * @property float latitude
+ * @property float longitude
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class Location
+class Location extends ObjectAbstract
 {
     /**
-     * @var float
-     */
-    private $longitude;
-    /**
-     * @var float
-     */
-    private $latitude;
-    /**
-     * @var float
-     */
-    private $horizontal_accuracy;
-    /**
-     * @var int
-     */
-    private $live_period;
-    /**
-     * @var int
-     */
-    private $heading;
-    /**
-     * @var int
-     */
-    private $proximity_alert_radius;
-
-    /**
      * Location constructor.
-     * @param float $longitude
-     * @param float $latitude
      */
-    public function __construct(float $longitude, float $latitude)
+    public function __construct
+    (
+        float $longitude,
+        float $latitude,
+        ?float $horizontal_accuracy,
+        ?int $live_period,
+        ?int $heading,
+        ?int $proximity_alert_radius
+    )
     {
         $this->longitude = $longitude;
         $this->latitude = $latitude;
+        $this->horizontal_accuracy = $horizontal_accuracy;
+        $this->live_period = $live_period;
+        $this->heading = $heading;
+        $this->proximity_alert_radius = $proximity_alert_radius;
     }
 
-    /**
-     * @return float
-     */
-    public function getHorizontalAccuracy(): float
+
+    public static function makeFromArray(array $data)
     {
-        return $this->horizontal_accuracy;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return int
-     */
-    public function getLivePeriod(): int
-    {
-        return $this->live_period;
-    }
-
-    /**
-     * @return int
-     */
-    public function getHeading(): int
-    {
-        return $this->heading;
-    }
-
-    /**
-     * @return int
-     */
-    public function getProximityAlertRadius(): int
-    {
-        return $this->proximity_alert_radius;
-    }
-
-
 }

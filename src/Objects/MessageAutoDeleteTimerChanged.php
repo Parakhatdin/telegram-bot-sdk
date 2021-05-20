@@ -6,31 +6,27 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class MessageAutoDeleteTimerChanged
+ *
+ * @property int message_auto_delete_time
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class MessageAutoDeleteTimerChanged
+class MessageAutoDeleteTimerChanged extends ObjectAbstract
 {
-    /**
-     * @var int
-     */
-    private $message_auto_delete_time;
 
     /**
      * MessageAutoDeleteTimerChanged constructor.
-     * @param int $message_auto_delete_time
      */
-    public function __construct(int $message_auto_delete_time)
+    public function __construct
+    (
+        int $message_auto_delete_time
+    )
     {
         $this->message_auto_delete_time = $message_auto_delete_time;
     }
 
-    /**
-     * @return int
-     */
-    public function getMessageAutoDeleteTime(): int
+    public static function makeFromArray(array $data)
     {
-        return $this->message_auto_delete_time;
+        // TODO: Implement makeFromArray() method.
     }
-
-
 }

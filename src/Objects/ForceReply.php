@@ -6,52 +6,30 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class ForceReply
+ *
+ * @property bool|null selective
+ * @property true force_reply
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class ForceReply
+class ForceReply extends ObjectAbstract
 {
     /**
-     * @var true
-     */
-    private $force_reply;
-    /**
-     * @var bool
-     */
-    private $selective;
-
-    /**
      * ForceReply constructor.
-     * @param true $force_reply
      */
-    public function __construct($force_reply)
+    public function __construct
+    (
+        $force_reply,
+        ?bool $selective
+    )
     {
         $this->force_reply = $force_reply;
-    }
-
-    /**
-     * @param bool $selective
-     */
-    public function setSelective(bool $selective): void
-    {
         $this->selective = $selective;
     }
 
-    /**
-     * @return true
-     */
-    public function getForceReply()
+
+    public static function makeFromArray(array $data)
     {
-        return $this->force_reply;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return bool
-     */
-    public function isSelective(): bool
-    {
-        return $this->selective;
-    }
-
-
-
 }

@@ -6,23 +6,17 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class ChatLocation
+ *
+ * @property string address
+ * @property Location location
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class ChatLocation
+class ChatLocation extends ObjectAbstract
 {
-    /**
-     * @var Location
-     */
-    private $location;
-    /**
-     * @var string
-     */
-    private $address;
 
     /**
      * ChatLocation constructor.
-     * @param Location $location
-     * @param string $address
      */
     public function __construct(Location $location, string $address)
     {
@@ -30,22 +24,8 @@ class ChatLocation
         $this->address = $address;
     }
 
-    /**
-     * @return Location
-     */
-    public function getLocation(): Location
+    public static function makeFromArray(array $data)
     {
-        return $this->location;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return string
-     */
-    public function getAddress(): string
-    {
-        return $this->address;
-    }
-
-
-
 }

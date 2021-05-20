@@ -6,86 +6,36 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class File
+ *
+ * @property string|null file_path
+ * @property int|null file_size
+ * @property string file_unique_id
+ * @property string file_id
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class File
+class File extends ObjectAbstract
 {
     /**
-     * @var string
-     */
-    private $file_id;
-    /**
-     * @var string
-     */
-    private $file_unique_id;
-    /**
-     * @var int
-     */
-    private $file_size;
-    /**
-     * @var string
-     */
-    private $file_path;
-
-    /**
      * File constructor.
-     * @param string $file_id
-     * @param string $file_unique_id
      */
-    public function __construct(string $file_id, string $file_unique_id)
+    public function __construct
+    (
+        string $file_id,
+        string $file_unique_id,
+        ?int $file_size,
+        ?string $file_path
+    )
     {
         $this->file_id = $file_id;
         $this->file_unique_id = $file_unique_id;
-    }
-
-    /**
-     * @param int $file_size
-     */
-    public function setFileSize(int $file_size): void
-    {
         $this->file_size = $file_size;
-    }
-
-    /**
-     * @param string $file_path
-     */
-    public function setFilePath(string $file_path): void
-    {
         $this->file_path = $file_path;
     }
 
-    /**
-     * @return string
-     */
-    public function getFileId(): string
+
+    public static function makeFromArray(array $data)
     {
-        return $this->file_id;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return string
-     */
-    public function getFileUniqueId(): string
-    {
-        return $this->file_unique_id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getFileSize(): int
-    {
-        return $this->file_size;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFilePath(): string
-    {
-        return $this->file_path;
-    }
-
-
-
 }

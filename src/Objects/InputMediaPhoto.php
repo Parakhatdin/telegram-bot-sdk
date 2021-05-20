@@ -6,106 +6,39 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class InputMediaPhoto
+ *
+ * @property MessageEntity[]|null caption_entities
+ * @property string|null parse_mode
+ * @property string|null caption
+ * @property string media
+ * @property string type
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class InputMediaPhoto
+class InputMediaPhoto extends ObjectAbstract
 {
     /**
-     * @var string
-     */
-    private $type;
-    /**
-     * @var string
-     */
-    private $media;
-    /**
-     * @var string
-     */
-    private $caption;
-    /**
-     * @var string
-     */
-    private $parse_mode;
-    /**
-     * @var MessageEntity[]
-     */
-    private $caption_entities;
-
-    /**
      * InputMediaPhoto constructor.
-     * @param string $type
-     * @param string $media
      */
-    public function __construct(string $type, string $media)
+    public function __construct
+    (
+        string $type,
+        string $media,
+        ?string $caption,
+        ?string $parse_mode,
+        ?array $caption_entities
+    )
     {
         $this->type = $type;
         $this->media = $media;
-    }
-
-    /**
-     * @param string $caption
-     */
-    public function setCaption(string $caption): void
-    {
         $this->caption = $caption;
-    }
-
-    /**
-     * @param string $parse_mode
-     */
-    public function setParseMode(string $parse_mode): void
-    {
         $this->parse_mode = $parse_mode;
-    }
-
-    /**
-     * @param MessageEntity[] $caption_entities
-     */
-    public function setCaptionEntities(array $caption_entities): void
-    {
         $this->caption_entities = $caption_entities;
     }
 
-    /**
-     * @return string
-     */
-    public function getType(): string
+
+    public static function makeFromArray(array $data)
     {
-        return $this->type;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return string
-     */
-    public function getMedia(): string
-    {
-        return $this->media;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCaption(): string
-    {
-        return $this->caption;
-    }
-
-    /**
-     * @return string
-     */
-    public function getParseMode(): string
-    {
-        return $this->parse_mode;
-    }
-
-    /**
-     * @return MessageEntity[]
-     */
-    public function getCaptionEntities(): array
-    {
-        return $this->caption_entities;
-    }
-
-
-
 }

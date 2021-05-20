@@ -6,52 +6,30 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class ReplyKeyboardRemove
+ *
+ * @property bool|null selective
+ * @property true remove_keyboard
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class ReplyKeyboardRemove
+class ReplyKeyboardRemove extends ObjectAbstract
 {
     /**
-     * @var true
-     */
-    private $remove_keyboard;
-    /**
-     * @var bool
-     */
-    private $selective;
-
-    /**
      * ReplyKeyboardRemove constructor.
-     * @param true $remove_keyboard
      */
-    public function __construct($remove_keyboard)
+    public function __construct
+    (
+        $remove_keyboard,
+        ?bool $selective
+    )
     {
         $this->remove_keyboard = $remove_keyboard;
-    }
-
-    /**
-     * @param bool $selective
-     */
-    public function setSelective(bool $selective): void
-    {
         $this->selective = $selective;
     }
 
-    /**
-     * @return true
-     */
-    public function getRemoveKeyboard()
+
+    public static function makeFromArray(array $data)
     {
-        return $this->remove_keyboard;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return bool
-     */
-    public function isSelective(): bool
-    {
-        return $this->selective;
-    }
-
-
-
 }

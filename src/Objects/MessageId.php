@@ -6,32 +6,24 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class MessageId
+ *
+ * @property int message_id
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class MessageId
+class MessageId extends ObjectAbstract
 {
-    /**
-     * @var int
-     */
-    private $message_id;
 
     /**
      * MessageId constructor.
-     * @param int $message_id
      */
     public function __construct(int $message_id)
     {
         $this->message_id = $message_id;
     }
 
-    /**
-     * @return int
-     */
-    public function getMessageId(): int
+    public static function makeFromArray(array $data)
     {
-        return $this->message_id;
+        // TODO: Implement makeFromArray() method.
     }
-
-
-
 }

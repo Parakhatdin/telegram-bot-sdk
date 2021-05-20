@@ -6,60 +6,33 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class ProximityAlertTriggered
+ *
+ * @property int distance
+ * @property User watcher
+ * @property User traveler
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class ProximityAlertTriggered
+class ProximityAlertTriggered extends ObjectAbstract
 {
-    /**
-     * @var User
-     */
-    private $traveler;
-    /**
-     * @var User
-     */
-    private $watcher;
-    /**
-     * @var int
-     */
-    private $distance;
 
     /**
      * ProximityAlertTriggered constructor.
-     * @param User $traveler
-     * @param User $watcher
-     * @param int $distance
      */
-    public function __construct(User $traveler, User $watcher, int $distance)
+    public function __construct
+    (
+        User $traveler,
+        User $watcher,
+        int $distance
+    )
     {
         $this->traveler = $traveler;
         $this->watcher = $watcher;
         $this->distance = $distance;
     }
 
-    /**
-     * @return User
-     */
-    public function getTraveler(): User
+    public static function makeFromArray(array $data)
     {
-        return $this->traveler;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return User
-     */
-    public function getWatcher(): User
-    {
-        return $this->watcher;
-    }
-
-    /**
-     * @return int
-     */
-    public function getDistance(): int
-    {
-        return $this->distance;
-    }
-
-
-
 }

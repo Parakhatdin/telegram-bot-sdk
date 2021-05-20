@@ -6,140 +6,45 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class Venue
+ *
+ * @property string|null google_place_type
+ * @property string|null google_place_id
+ * @property string|null foursquare_type
+ * @property string|null foursquare_id
+ * @property string address
+ * @property string title
+ * @property Location location
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class Venue
+class Venue extends ObjectAbstract
 {
     /**
-     * @var Location
-     */
-    private $location;
-    /**
-     * @var string
-     */
-    private $title;
-    /**
-     * @var string
-     */
-    private $address;
-    /**
-     * @var string
-     */
-    private $foursquare_id;
-    /**
-     * @var string
-     */
-    private $foursquare_type;
-    /**
-     * @var string
-     */
-    private $google_place_id;
-    /**
-     * @var string
-     */
-    private $google_place_type;
-
-    /**
      * Venue constructor.
-     * @param Location $location
-     * @param string $title
-     * @param string $address
      */
-    public function __construct(Location $location, string $title, string $address)
+    public function __construct
+    (
+        Location $location,
+        string $title,
+        string $address,
+        ?string $foursquare_id,
+        ?string $foursquare_type,
+        ?string $google_place_id,
+        ?string $google_place_type
+    )
     {
         $this->location = $location;
         $this->title = $title;
         $this->address = $address;
-    }
-
-    /**
-     * @param string $foursquare_id
-     */
-    public function setFoursquareId(string $foursquare_id): void
-    {
         $this->foursquare_id = $foursquare_id;
-    }
-
-    /**
-     * @param string $foursquare_type
-     */
-    public function setFoursquareType(string $foursquare_type): void
-    {
         $this->foursquare_type = $foursquare_type;
-    }
-
-    /**
-     * @param string $google_place_id
-     */
-    public function setGooglePlaceId(string $google_place_id): void
-    {
         $this->google_place_id = $google_place_id;
-    }
-
-    /**
-     * @param string $google_place_type
-     */
-    public function setGooglePlaceType(string $google_place_type): void
-    {
         $this->google_place_type = $google_place_type;
     }
 
-    /**
-     * @return Location
-     */
-    public function getLocation(): Location
+
+    public static function makeFromArray(array $data)
     {
-        return $this->location;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return string
-     */
-    public function getTitle(): string
-    {
-        return $this->title;
-    }
-
-    /**
-     * @return string
-     */
-    public function getAddress(): string
-    {
-        return $this->address;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFoursquareId(): string
-    {
-        return $this->foursquare_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFoursquareType(): string
-    {
-        return $this->foursquare_type;
-    }
-
-    /**
-     * @return string
-     */
-    public function getGooglePlaceId(): string
-    {
-        return $this->google_place_id;
-    }
-
-    /**
-     * @return string
-     */
-    public function getGooglePlaceType(): string
-    {
-        return $this->google_place_type;
-    }
-
-
-
 }

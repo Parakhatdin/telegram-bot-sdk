@@ -6,30 +6,27 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class VoiceChatParticipantsInvited
+ *
+ * @property User[] users
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class VoiceChatParticipantsInvited
+class VoiceChatParticipantsInvited extends ObjectAbstract
 {
     /**
-     * @var User[]
+     * VoiceChatParticipantsInvited constructor.
      */
-    private $users;
-
-    /**
-     * @param User[] $users
-     */
-    public function setUsers(array $users): void
+    public function __construct
+    (
+        array $users
+    )
     {
         $this->users = $users;
     }
 
-    /**
-     * @return User[]
-     */
-    public function getUsers(): array
+
+    public static function makeFromArray(array $data)
     {
-        return $this->users;
+        // TODO: Implement makeFromArray() method.
     }
-
-
 }

@@ -6,23 +6,16 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class BotCommand
+ *
+ * @property string description
+ * @property string command
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class BotCommand
+class BotCommand extends ObjectAbstract
 {
     /**
-     * @var string
-     */
-    private $command;
-    /**
-     * @var string
-     */
-    private $description;
-
-    /**
      * BotCommand constructor.
-     * @param string $command
-     * @param string $description
      */
     public function __construct(string $command, string $description)
     {
@@ -30,22 +23,8 @@ class BotCommand
         $this->description = $description;
     }
 
-    /**
-     * @return string
-     */
-    public function getCommand(): string
+    public static function makeFromArray(array $data)
     {
-        return $this->command;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return string
-     */
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-
-
 }

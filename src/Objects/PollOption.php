@@ -6,46 +6,30 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class PollOption
+ *
+ * @property int voter_count
+ * @property string text
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class PollOption
+class PollOption extends ObjectAbstract
 {
-    /**
-     * @var string
-     */
-    private $text;
-    /**
-     * @var int
-     */
-    private $voter_count;
 
     /**
      * PollOption constructor.
-     * @param string $text
-     * @param int $voter_count
      */
-    public function __construct(string $text, int $voter_count)
+    public function __construct
+    (
+        string $text,
+        int $voter_count
+    )
     {
         $this->text = $text;
         $this->voter_count = $voter_count;
     }
 
-    /**
-     * @return string
-     */
-    public function getText(): string
+    public static function makeFromArray(array $data)
     {
-        return $this->text;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return int
-     */
-    public function getVoterCount(): int
-    {
-        return $this->voter_count;
-    }
-
-
-
 }

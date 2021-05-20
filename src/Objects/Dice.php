@@ -6,46 +6,29 @@ namespace Parakhatdin\Telegram\Objects;
 
 /**
  * Class Dice
+ *
+ * @property int value
+ * @property string emoji
+ *
  * @package Parakhatdin\Bot\Objects
  */
-class Dice
+class Dice extends ObjectAbstract
 {
     /**
-     * @var string
-     */
-    private $emoji;
-    /**
-     * @var int
-     */
-    private $value;
-
-    /**
      * Dice constructor.
-     * @param string $emoji
-     * @param int $value
      */
-    public function __construct(string $emoji, int $value)
+    public function __construct
+    (
+        string $emoji,
+        int $value
+    )
     {
         $this->emoji = $emoji;
         $this->value = $value;
     }
 
-    /**
-     * @return string
-     */
-    public function getEmoji(): string
+    public static function makeFromArray(array $data)
     {
-        return $this->emoji;
+        // TODO: Implement makeFromArray() method.
     }
-
-    /**
-     * @return int
-     */
-    public function getValue(): int
-    {
-        return $this->value;
-    }
-
-
-
 }
